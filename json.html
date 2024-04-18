@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Creating an Object from a JSON String</h1>
+     <p id="str"></p>
+     <!--string to object-->
+     <h2>Create a JSON string from a JavaScript object.</h2>
+     <p id="obj"></p>
+     <!--date()-->
+     <h2>JavaScript Date.now()</h2>
+     <p>Date.now() is new in ECMAScript 5 (2009):</p>
+     <p id="date1"></p>
+     <p id="date2"></p>
+<!--date to isoform-->
+<h2>The toISOString() Method</h2>
+<p>Convert a date to a string using the ISO standard:</p>
+<p id="demo"></p>
+<!--getter and setter--> <!--get read objects property value & set is set an objects property value-->
+<h2>JavaScript Getters </h2>
+<p>This example creates a getter for a property called fullName.</p>
+<p id="get"></p>
+
+<script>
+const txt = '{"name":"John", "age":30, "city":"New York"}'
+const obj = JSON.parse(txt);
+document.getElementById("str").innerHTML = obj.name + ", " + obj.age;
+
+const object = {name: "John", age: 30, city: "New York"};
+const myJSON = JSON.stringify(object);
+document.getElementById("obj").innerHTML = myJSON;
+
+document.getElementById("date1").innerHTML = Date.now();
+var d = new Date();
+document.getElementById("date2").innerHTML = d.getTime(); 
+
+var d = new Date();
+document.getElementById("demo").innerHTML = d.toISOString();
+
+var person = {
+  firstName: "John",
+  lastName : "Doe",
+  get fullName() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+document.getElementById("get").innerHTML = person.fullName;
+
+</script>
+</body>
+</html>
